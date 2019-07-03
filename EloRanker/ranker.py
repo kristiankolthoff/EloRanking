@@ -17,3 +17,7 @@ class Ranker(abc.ABC):
     @abc.abstractmethod
     def getRankerName(self):
         raise NotImplementedError
+        
+    @abc.abstractmethod
+    def sort(self, reverse = True):
+        raise NotImplementedError

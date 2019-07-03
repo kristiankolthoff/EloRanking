@@ -17,6 +17,10 @@ class PercentageRanker(ranker.Ranker):
     def predict_match(self, player1, player):
         pass
     
+    def sort(self, players, reverse = True):
+        return sorted(players, reverse = reverse, key = 
+            lambda player : (player.rankings[self.getRankerName()][0], player.rankings[self.getRankerName()][2]))
+    
     def getRankerName(self):
         return 'percentage-ranking'
     

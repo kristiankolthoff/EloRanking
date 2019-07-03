@@ -1,13 +1,14 @@
 class Player():
     
-    def __init__(self, name):
+    def __init__(self, name, p_id = None):
         self.name = name
-        self.id = id(self)
+        if not p_id:
+            self.p_id = id(self)
+        else:
+            self.p_id = p_id
         self.rankings = {}
-        self.wins = 0
-        self.losses = 0
         
     def __repr__(self):
         class_name = type(self).__name__
-        return '{} : ({}, {}, wins : {}, losses : {}, ranking : {})'. \
-                format(class_name, self.name, self.id ,self.wins, self.losses, self.rankings)
+        return '{} : ({}, {}, ranking : {})'. \
+                format(class_name, self.name, self.p_id, self.rankings)

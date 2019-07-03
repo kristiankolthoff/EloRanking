@@ -9,8 +9,12 @@ class Ranking():
         self.id = id(self)
         if not ranked_players:
             self.ranked_players = []
+        else:
+            self.ranked_players = ranked_players
         if not ranked_matches:
             self.ranked_matches = []
+        else:
+            self.ranked_matches = ranked_matches
         self.basicEloRanker = BasicEloRanker()
         self.percentageRanker = PercentageRanker()
         if not rankers or not isinstance(rankers, list):
@@ -28,8 +32,8 @@ class Ranking():
             l_player.rankings[ranker.getRankerName()] = l_player_rank
         self.ranked_matches.append(match)
                 
-    def getRankings(self):
-        return self.ranked_players
+    def getRankings(self, reverse = True):
+        return {ranker.getRankerName() : ranker.sort(self.ranked_players, reverse) for ranker in self.rankers}
     
     def match_prediction(player1, player2):
         pass

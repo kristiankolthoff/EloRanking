@@ -13,7 +13,11 @@ OUTCOME_SCORE_DRAW = 0.5
 class Match():
     
     def __init__(self, player1, player2, player1Points,
-                 player2Points, gameType = GAME_TYPE_DEFAULT):
+                 player2Points, gameType = GAME_TYPE_DEFAULT, match_id = None):
+        if not match_id:
+            self.match_id = id(self)
+        else:
+            self.match_id = match_id
         self.player1 = player1
         self.player2 = player2
         self.player1Points = player1Points

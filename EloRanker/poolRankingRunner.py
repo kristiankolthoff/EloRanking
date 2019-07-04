@@ -33,4 +33,4 @@ print('---------------- Missing Players ---------------------')
 print(missing_player_names)
 
 print('-------------------- Rankings -------------------------')
-print(ranking.getRankings())
+print(ranking.getRankingsByName('percentage-ranking'))

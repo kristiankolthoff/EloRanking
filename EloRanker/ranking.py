@@ -35,6 +35,12 @@ class Ranking():
     def getRankings(self, reverse = True):
         return {ranker.getRankerName() : ranker.sort(self.ranked_players, reverse) for ranker in self.rankers}
     
+    def getRankingsByName(self, ranker_name, reverse = True):
+        for ranker in self.rankers:
+            if ranker.getRankerName() == ranker_name:
+                return ranker.sort(self.ranked_players, reverse)
+        return None
+    
     def match_prediction(self, player1, player2):
         pass
     

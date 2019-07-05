@@ -32,5 +32,9 @@ for index, row in match_data.iterrows():
 print('---------------- Missing Players ---------------------')
 print(missing_player_names)
 
-print('-------------------- Rankings -------------------------')
-print(ranking.getRankingsByName('percentage-ranking'))
+print('-------------------- Percentage Ranking -------------------------')
+ranking.printRankingsByName('percentage-ranking')
+print('-------------------- Elo Ranking -------------------------')
+ranking.printRankingsByName('basic-elo-ranking')
+print('-------------------- Elo Margin Ranking -------------------------')
+ranking.printRankingsByName('basic-elo-margin-ranking')

@@ -8,7 +8,7 @@ player3 = Player('Player3')
 player4 = Player('Player4')
 
 
-match1 = Match(player1, player2, 6, 7)
+match1 = Match(player1, player2, 3, 7)
 
 ranking = Ranking('season1')
 ranking.addPlayer(player1)

@@ -1,4 +1,5 @@
 from basicEloRanker import BasicEloRanker
+from basicEloMarginRanker import BasicEloMarginRanker
 from percentageRanker import PercentageRanker
 
 class Ranking():
@@ -16,9 +17,11 @@ class Ranking():
         else:
             self.ranked_matches = ranked_matches
         self.basicEloRanker = BasicEloRanker()
+        self.basicEloMarginRanker = BasicEloMarginRanker()
         self.percentageRanker = PercentageRanker()
         if not rankers or not isinstance(rankers, list):
-            self.rankers = [self.basicEloRanker, self.percentageRanker]
+            self.rankers = [self.basicEloRanker, self.basicEloMarginRanker, 
+                            self.percentageRanker]
         
     def addPlayer(self, player):
         for ranker in self.rankers:
@@ -40,6 +43,15 @@ class Ranking():
             if ranker.getRankerName() == ranker_name:
                 return ranker.sort(self.ranked_players, reverse)
         return None
+    
+    def printRankingsByName(self, ranker_name, reverse = True):
+        for ranker in self.rankers:
+            if ranker.getRankerName() == ranker_name:
+                ranking = ranker.sort(self.ranked_players, reverse)
+                for index, player in enumerate(ranking):
+                    print('[{}] : ({}, {}, {}   | {})'. \
+                format(str((index+1)).zfill(2) , player.name, player.club,
+                       player.p_id, player.rankings[ranker.getRankerName()]))
     
     def match_prediction(self, player1, player2):
         pass

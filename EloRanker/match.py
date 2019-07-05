@@ -32,6 +32,13 @@ class Match():
         return self.player1 if self.player1Points < self.player2Points \
                             else self.player2
                             
+    def race_to(self):
+        return self.player1Points if self.player1Points > self.player2Points \
+                                  else self.player2Points
+                                  
+    def score_diff(self):
+        return abs(self.player1Points - self.player2Points)
+                            
     def __repr__(self):
         class_name = type(self).__name__
         return '{} : ({}, {}, {}, {}, {})'. \

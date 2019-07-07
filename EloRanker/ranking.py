@@ -1,6 +1,7 @@
 from basicEloRanker import BasicEloRanker
 from basicEloMarginRanker import BasicEloMarginRanker
 from percentageRanker import PercentageRanker
+import pandas as pd
 
 class Ranking():
     
@@ -43,6 +44,18 @@ class Ranking():
             if ranker.getRankerName() == ranker_name:
                 return ranker.sort(self.ranked_players, reverse)
         return None
+    
+    def player_w_ranking_to_dict(self, player, rank, ranker_name):
+        return {'rank' : (rank+1), 'name' : player.name, 'club' : player.club, 
+                'id' : player.p_id, ranker_name : player.rankings[ranker_name]}
+    
+    def getRankingsByNameAsDataframe(self, ranker_name, reverse = True):
+        for ranker in self.rankers:
+            if ranker.getRankerName() == ranker_name:
+                ranking = ranker.sort(self.ranked_players, reverse)
+                return pd.DataFrame([self.player_w_ranking_to_dict(player, 
+                                     index, ranker_name)
+                                     for index, player in enumerate(ranking)])
     
     def printRankingsByName(self, ranker_name, reverse = True):
         for ranker in self.rankers:

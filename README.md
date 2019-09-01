@@ -3,7 +3,8 @@
 This project aims to provide some simple [Elo ranking](https://en.wikipedia.org/wiki/Elo_rating_system) implementations that 
 can be used to compute meaningful rankings for players in a sports league. Comparing the Elo ratings of two players, we can 
 make predictions of the outcome of the match between them. After some matches have been played, the rankings of the corresponding 
-players are adapted in order to better reflect and converge to the real rankings and self-correct them. 
+players are adapted in order to better reflect and converge to the real rankings and self-correct them. This system is applied in many
+games and can e.g. be used for improved matchmaking. Many adaptions of this ranking system exist varying in the computation of the ranking itself and the updating policy of the ranking.
 
 # Example
 

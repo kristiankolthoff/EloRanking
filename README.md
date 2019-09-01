@@ -8,7 +8,7 @@ games and can e.g. be used for improved matchmaking. Many adaptions of this rank
 
 # Example
 
-In order to use the Elo ranking implementation in Python, we first import the ´´Ranking´´, ´´Player´´ and ´´Match´´ classes
+In order to use the Elo ranking implementation in Python, we first import the ``Ranking``, ``Player`` and ``Match`` classes
 and create a new ranking instance.
 
  ```python
@@ -21,7 +21,7 @@ from match import Match
 ranking = Ranking('season-1')
 ```
 
-Afterwards, we need to add all the players we want to include in the ranking to the ´´Ranking´´ instance.
+Afterwards, we need to add all the players we want to include in the ranking to the ``Ranking`` instance.
 In our case, we read the data from a Pandas Dataframe instance.
 
  ```python

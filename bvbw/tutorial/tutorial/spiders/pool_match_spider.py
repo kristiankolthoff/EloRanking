@@ -3,7 +3,7 @@ from scrapy import Selector
 
 class PoolSpider(scrapy.Spider):
     name = "pool-match-spider"
-    start_urls = ["https://bvbw.billardarea.de/cms_leagues/plan/5836/7925"]
+    start_urls = ["https://bvbw.billardarea.de/cms_leagues/plan/6505/8756"]
     
     def parse(self, response):
         for href in response.xpath('//a[contains(@href,"cms_leagues/matchday")]/@href'):

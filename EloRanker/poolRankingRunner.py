@@ -7,7 +7,7 @@ from match import Match
 ranking = Ranking('season-1')
 
 # Read the player data
-player_data = pd.read_csv('data/input/player_data.csv')
+player_data = pd.read_csv('data/input/player_data_s3.csv')
 print('---------------- Ranked Players ---------------------')
 for index, row in player_data.iterrows():
     name = [elem.strip() for elem in row['name'].split(',')]
@@ -17,7 +17,7 @@ for index, row in player_data.iterrows():
     
 
 # Read the match data
-match_data = pd.read_csv('data/input/match_data.csv')
+match_data = pd.read_csv('data/input/match_data_s3.csv')
 print('---------------- Ranked Matches ---------------------')
 missing_player_names = []
 for index, row in match_data.iterrows():
@@ -35,12 +35,12 @@ print(missing_player_names)
 print('-------------------- Percentage Ranking -------------------------')
 ranking.printRankingsByName('percentage-ranking')
 df_ranking_percentage = ranking.getRankingsByNameAsDataframe('percentage-ranking')
-df_ranking_percentage.to_csv('data/rankings/percentage-ranking.csv')
+df_ranking_percentage.to_csv('data/rankings/percentage-ranking_s3.csv')
 print('-------------------- Elo Ranking -------------------------')
 ranking.printRankingsByName('basic-elo-ranking')
 df_ranking_elo = ranking.getRankingsByNameAsDataframe('basic-elo-ranking')
-df_ranking_elo.to_csv('data/rankings/basic-elo-ranking.csv')
+df_ranking_elo.to_csv('data/rankings/basic-elo-ranking_s3.csv')
 print('-------------------- Elo Margin Ranking -------------------------')
 ranking.printRankingsByName('basic-elo-margin-ranking')
 df_ranking_elo_margin = ranking.getRankingsByNameAsDataframe('basic-elo-margin-ranking')
-df_ranking_elo_margin.to_csv('data/rankings/basic-elo-margin-ranking.csv')
+df_ranking_elo_margin.to_csv('data/rankings/basic-elo-margin-ranking_s3.csv')
